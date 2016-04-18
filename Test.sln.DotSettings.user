@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/Highlighting/AnalysisEnabled/@EntryValue">VISIBLE_FILES</s:String>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Microsoft.CSharp.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\packages\Hadoop.Client.0.1.0.0\lib\net40\Hadoop.Client.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\packages\togglez.0.0.6\lib\net45\Togglez.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\packages\Mixpanel.NET.0.2.0\lib\Mixpanel.NET.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\packages\NServiceKit.OrmLite.PostgreSQL.1.0.11\lib\net35\NServiceKit.OrmLite.PostgreSQL.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<system.web>
+		<compilation>
+			<assemblies>
+				<add assembly="Telerik.Reporting, Version=9.2.15.1105, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+			</assemblies>
+		</compilation>
+	</system.web>
+</configuration>

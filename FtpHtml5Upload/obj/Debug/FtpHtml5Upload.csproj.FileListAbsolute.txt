@@ -1,0 +1,6 @@
+C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\bin\Debug\FtpHtml5Upload.exe.config
+C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\bin\Debug\FtpHtml5Upload.exe
+C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\bin\Debug\FtpHtml5Upload.pdb
+C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.csprojResolveAssemblyReference.cache
+C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.exe
+C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.pdb

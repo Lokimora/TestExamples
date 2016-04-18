@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebHdfs</name>
+    </assembly>
+    <members>
+        <member name="T:WebHdfs.Entities.BooleanResult">
+            <summary>
+            Parses boolean resul
+            </summary>
+            <inheritdoc cref="T:WebHdfs.Entities.IJObject"/>
+        </member>
+        <member name="T:WebHdfs.Entities.IJObject">
+            <summary>
+            Base interface for JObject-based entities.
+            </summary>
+        </member>
+        <member name="M:WebHdfs.Entities.IJObject.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parse JObject instance.
+            </summary>
+            <param name="obj">Instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/>, received from HttpClient</param>
+        </member>
+        <member name="M:WebHdfs.Entities.BooleanResult.Parse(Newtonsoft.Json.Linq.JObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:WebHdfs.Entities.BooleanResult.Value">
+            <summary>
+            Value retrieved
+            </summary>
+        </member>
+        <member name="T:WebHdfs.Entities.ContentSummary">
+            <summary>
+            Content summary.
+            </summary>
+            <inheritdoc cref="T:WebHdfs.Entities.IJObject"/>
+        </member>
+        <member name="M:WebHdfs.Entities.ContentSummary.Parse(Newtonsoft.Json.Linq.JObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:WebHdfs.Entities.ContentSummary.DirectoryCount">
+            <summary>
+            The number of directories.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.ContentSummary.FileCount">
+            <summary>
+            The number of files.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.ContentSummary.Length">
+            <summary>
+            The number of bytes used by the content.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.ContentSummary.Quota">
+            <summary>
+            The namespace quota of this directory.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.ContentSummary.SpaceConsumed">
+            <summary>
+            The disk space consumed by the content.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.ContentSummary.SpaceQuota">
+            <summary>
+            The disk space quota.
+            </summary>
+        </member>
+        <member name="T:WebHdfs.Entities.DirectoryEntry">
+            <summary>
+            Directory info.
+            </summary>
+            <inheritdoc cref="T:WebHdfs.Entities.IJObject"/>
+        </member>
+        <member name="M:WebHdfs.Entities.DirectoryEntry.Parse(Newtonsoft.Json.Linq.JObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.AccessTime">
+            <summary>
+            The access time.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.BlockSize">
+            <summary>
+            Block size
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.Group">
+            <summary>
+            Owner group
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.Length">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.ModificationTime">
+            <summary>
+            Last modification time
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.Owner">
+            <summary>
+            Owner
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.PathSuffix">
+            <summary>
+            The path suffix.
+            </summary>
+            <remarks>Really, why not?</remarks>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.Permission">
+            <summary>
+            The permission represented as a octal string.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.Replication">
+            <summary>
+            Replication factor
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryEntry.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="T:WebHdfs.Entities.DirectoryListing">
+            <summary>
+            Entity for Directory listing.
+            </summary>
+            <inheritdoc cref="T:WebHdfs.Entities.IJObject"/>
+        </member>
+        <member name="M:WebHdfs.Entities.DirectoryListing.Parse(Newtonsoft.Json.Linq.JObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryListing.Directories">
+            <summary>
+            List of subdirectories 
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.DirectoryListing.Files">
+            <summary>
+            List of files
+            </summary>
+        </member>
+        <member name="T:WebHdfs.Entities.FileChecksum">
+            <summary>
+            File checksum info
+            </summary>
+            <inheritdoc cref="T:WebHdfs.Entities.IJObject"/>
+        </member>
+        <member name="M:WebHdfs.Entities.FileChecksum.Parse(Newtonsoft.Json.Linq.JObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:WebHdfs.Entities.FileChecksum.Algorithm">
+            <summary>
+            The name of the checksum algorithm.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.FileChecksum.Checksum">
+            <summary>
+            The byte sequence of the checksum in hexadecimal.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.Entities.FileChecksum.Length">
+            <summary>
+            The length of the bytes (not the length of the string).
+            </summary>
+        </member>
+        <member name="T:WebHdfs.HttpClientEventArgs">
+            <summary>
+            HttpClient Event Arguments holder
+            </summary>
+        </member>
+        <member name="M:WebHdfs.HttpClientEventArgs.#ctor(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            Public constructor (really)
+            </summary>
+            <param name="response"><see cref="T:System.Net.Http.HttpResponseMessage"/> returned by client.</param>
+            <param name="exception"><see cref="T:System.Exception"/> thrown while executing request.</param>
+        </member>
+        <member name="P:WebHdfs.HttpClientEventArgs.Response">
+            <summary>
+            <see cref="T:System.Net.Http.HttpResponseMessage"/> returned by client.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.HttpClientEventArgs.Exception">
+            <summary>
+            <see cref="T:System.Exception"/> thrown while executing request.
+            </summary>
+            <tocexclude/>
+        </member>
+        <member name="T:WebHdfs.HttpRequestOptions">
+            <summary>
+            Опции запроса
+            </summary>
+        </member>
+        <member name="M:WebHdfs.HttpRequestOptions.#ctor">
+            <summary>
+            дефолтовый конструктор
+            </summary>
+        </member>
+        <member name="P:WebHdfs.HttpRequestOptions.Completion">
+            <summary>
+            Условие завершения обработки
+            </summary>
+        </member>
+        <member name="P:WebHdfs.HttpRequestOptions.Token">
+            <summary>
+            Токен для отмены
+            </summary>
+        </member>
+        <member name="P:WebHdfs.HttpRequestOptions.Formatter">
+            <summary>
+            Форматировщик тела запроса
+            </summary>
+        </member>
+        <member name="P:WebHdfs.HttpRequestOptions.Method">
+            <summary>
+            HTTP-метод
+            </summary>
+        </member>
+        <member name="T:WebHdfs.WebHdfsClient">
+            <summary>
+            Minimalistic WebHdfs client
+            </summary>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.#ctor(System.String,System.String)">
+            <summary>
+            Public constructor.
+            </summary>
+            <param name="baseUrl">Base url of WebHdfs service.</param>
+            <param name="user">Username to be used on each call.</param>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.#ctor(System.Net.Http.HttpMessageHandler,System.String,System.String)">
+            <summary>
+            Public constructor.
+            </summary>
+            <param name="handler">Underlying <see cref="T:System.Net.Http.HttpMessageHandler"/> to be used (for testing mostly).</param>
+            <param name="baseUrl">Base url of WebHdfs service.</param>
+            <param name="user">Username to be used on each call.</param>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.GetDirectoryStatus(System.String)">
+            <summary>
+            List the statuses of the files/directories in the given path if the path is a directory. 
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.GetFileStatus(System.String)">
+            <summary>
+            Return a file status object that represents the path.
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.GetHomeDirectory">
+            <summary>
+            Return the current user's home directory in this filesystem. 
+            The default implementation returns "/user/$USER/". 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.GetContentSummary(System.String)">
+            <summary>
+            Return the ContentSummary of a given Path
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.GetFileChecksum(System.String)">
+            <summary>
+            Get the checksum of a file
+            </summary>
+            <param name="path">The file checksum. The default return value is null, which 
+            indicates that no checksum algorithm is implemented in the corresponding FileSystem. </param>
+            <returns></returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.OpenFile(System.String)">
+            <summary>
+            Opens an FSDataInputStream at the indicated Path
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with file content.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.OpenFile(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Opens an FSDataInputStream at the indicated Path
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/> to cancel call if needed.</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with file content.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.OpenFile(System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Opens an FSDataInputStream at the indicated Path.  The offset and length will allow 
+            you to get a subset of the file.  
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="offset">The starting byte position. This includes any header bytes</param>
+            <param name="length">The number of bytes to be processed.</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/> to cancel call if needed.</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with file content.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.CreateDirectory(System.String)">
+            <summary>
+            Make the given file and all non-existent parents into directories. 
+            Has the semantics of Unix 'mkdir -p'. Existence of the directory hierarchy is not an error. 
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.RenameDirectory(System.String,System.String)">
+            <summary>
+            Renames Path src to Path dst.
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="newPath"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.DeleteDirectory(System.String)">
+            <summary>
+            Delete a file.  Note, this will not recursively delete and will
+            not delete if directory is not empty
+            </summary>
+            <param name="path">the path to delete</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.DeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            Delete a file
+            </summary>
+            <param name="path">the path to delete</param>
+            <param name="recursive">if path is a directory and set to true, the directory is deleted else throws an exception.
+            In case of a file the recursive can be set to either true or false. </param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.SetPermissions(System.String,System.String)">
+            <summary>
+            Set permission of a path.
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="permissions"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.SetOwner(System.String,System.String)">
+            <summary>
+            Sets the owner for the file 
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="owner">If it is null, the original username remains unchanged</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.SetGroup(System.String,System.String)">
+            <summary>
+            Sets the group for the file 
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="group">If it is null, the original groupname remains unchanged</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.SetReplicationFactor(System.String,System.Int32)">
+            <summary>
+            Set replication for an existing file.
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="replicationFactor"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.SetAccessTime(System.String,System.String)">
+            <summary>
+            Set access time of a file
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="accessTime">Set the access time of this file. The number of milliseconds since Jan 1, 1970. 
+            A value of -1 means that this call should not set access time</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.SetModificationTime(System.String,System.String)">
+            <summary>
+            Set modification time of a file
+            </summary>
+            <param name="path">The string representation a Path.</param>
+            <param name="modificationTime">Set the modification time of this file. The number of milliseconds since Jan 1, 1970.
+            A value of -1 means that this call should not set modification time</param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.CreateFile(System.String,System.String)">
+            <summary>
+            Opens an FSDataOutputStream at the indicated Path. Files are overwritten by default.
+            </summary>
+            <param name="localFile"></param>
+            <param name="remotePath"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.CreateFile(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Opens an FSDataOutputStream at the indicated Path. Files are overwritten by default.
+            </summary>
+            <param name="localFile"></param>
+            <param name="remotePath"></param>
+            <param name="token"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.CreateFile(System.IO.Stream,System.String)">
+            <summary>
+            Opens an FSDataOutputStream at the indicated Path. Files are overwritten by default.
+            </summary>
+            <param name="content"></param>
+            <param name="remotePath"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.CreateFile(System.IO.Stream,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Opens an FSDataOutputStream at the indicated Path. Files are overwritten by default.
+            </summary>
+            <param name="content"></param>
+            <param name="remotePath"></param>
+            <param name="token"></param>
+            <returns>Async <see cref="T:System.Threading.Tasks.Task`1"/> with result of operation.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.GetResponseMessageAsync(System.String,System.Object,WebHdfs.HttpRequestOptions)">
+            <summary>
+            Send http request and return <see cref="T:System.Net.Http.HttpResponseMessage"/> received.
+            </summary>
+            <param name="url">Url to be requested.</param>
+            <param name="data">Data to be sent.</param>
+            <param name="options">Request options.</param>
+            <returns>Asynchronous task.</returns>
+        </member>
+        <member name="M:WebHdfs.WebHdfsClient.OnError(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            Overridable handler for Error event.
+            </summary>
+            <param name="response"><see cref="T:System.Net.Http.HttpResponseMessage"/>, вернувшийся от сервера</param>
+            <param name="exception"><see cref="T:System.Exception"/>, выпавший в процессе запроса</param>
+        </member>
+        <member name="P:WebHdfs.WebHdfsClient.BaseUrl">
+            <summary>
+            Base url of WebHdfs service.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.WebHdfsClient.HomeDirectory">
+            <summary>
+            Home directory.
+            </summary>
+        </member>
+        <member name="P:WebHdfs.WebHdfsClient.User">
+            <summary>
+            Username to be used with securify off (when only user.name required);
+            </summary>
+        </member>
+        <member name="P:WebHdfs.WebHdfsClient.InnerHandler">
+            <summary>
+            Underlying <see cref="T:System.Net.Http.HttpMessageHandler"/> that will process web requests (for testing purpose mostly).
+            </summary>
+        </member>
+        <member name="E:WebHdfs.WebHdfsClient.Error">
+            <summary>
+            Event, fired up in case if client returns responseCode other than 20*.
+            </summary>
+        </member>
+    </members>
+</doc>
