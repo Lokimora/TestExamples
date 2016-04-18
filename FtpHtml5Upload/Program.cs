@@ -6,14 +6,13 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FtpHtml5Upload
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Url url = new Url("ftp://localhost:21/240x400_targetex");
 
@@ -23,71 +22,54 @@ namespace FtpHtml5Upload
 
             WebClient wc = new WebClient();
 
-            var directories = GetDirectoryInformation(url.Value, null, null);
+            var directories = GetDirectoryInformation(url.Value, null, null).SelectMany(Expand).ToArray();
 
-            List<byte[]> bytes = new List<byte[]>();
 
-            foreach (var v in directories)
+
+            using (FileStream fs = new FileStream(@"F:\banners.zip", FileMode.OpenOrCreate))
             {
-                bytes.Add(DownloadFtpFileds(v));
-            }
-
-            var data = bytes.SelectMany(p => p).ToArray();
-
-            //using (MemoryStream stream = new MemoryStream(data))
-            //{
-            //    using (FileStream fs = new FileStream("F:/testZip.zip", FileMode.Create))
-            //    {
-
-            //        foreach (var VA)
-            //        {
-                        
-            //        }
-
-            //        using(ZipArchive archive )
-            //    }
-                
-            //}
-
-
-        }
-
-
-        static byte[] DownloadFtpFileds(DirectoryItem item)
-        {
-            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(item.AbsolutePath);
-            request.Method = WebRequestMethods.Ftp.DownloadFile;
-            request.UsePassive = true;
-            request.UseBinary = true;
-            request.KeepAlive = false;
-
-            List<byte[]> byteList = new List<byte[]>();
-
-            if (item.IsDirectory)
-            {
-                foreach (var v in item.Items)
+                using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Update))
                 {
-                    byteList.Add(DownloadFtpFileds(v));
-                }
-            }
-
-            else
-            {
-                using (var response = (FtpWebResponse) request.GetResponse())
-                {
-                    using (var mem = new MemoryStream())
+                    foreach (var v in directories)
                     {
-                        response.GetResponseStream().CopyTo(mem);
-                        byteList.Add(mem.ToArray());
+                        var entry = archive.CreateEntry(v.BaseUri.AbsolutePath);
                     }
                 }
             }
 
 
-            return byteList.SelectMany(p => p).ToArray();
+        }
+
+
+
+
+
+
+        static byte[] DownloadFile(string path)
+        {
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(path);
+            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+            request.UsePassive = true;
+            request.UseBinary = true;
+            request.KeepAlive = false;
+
+            using (var mem = new MemoryStream())
+            {
+                using(var stream = request.GetResponse().GetResponseStream())
+                {
+                    stream.CopyTo(mem);
+                }
+
+                return mem.ToArray();
+
+            }
+           
 
 
         }
+
+
+       
 
 
         static List<DirectoryItem> GetDirectoryInformation(string address, string username, string password)
@@ -135,12 +117,35 @@ namespace FtpHtml5Upload
                 item.Name = name;
 
                 Debug.WriteLine(item.AbsolutePath);
-                item.Items = item.IsDirectory ? GetDirectoryInformation(item.AbsolutePath, username, password) : null;
+                item.Items = item.IsDirectory ? GetDirectoryInformation(item.AbsolutePath, username, password) : new List<DirectoryItem>();
 
                 returnValue.Add(item);
             }
 
             return returnValue;
         }
+
+
+        public static List<DirectoryItem> Expand(DirectoryItem directory)
+        {
+            List<DirectoryItem> items = new List<DirectoryItem>();
+
+            if (directory.Items.Any())
+            {
+                foreach (var v in directory.Items)
+                {
+                    items.AddRange(Expand(v));
+                }
+
+            }
+
+            else
+            {
+                items.Add(directory);
+            }
+
+            return items;
+        }
+
     }
 }
