@@ -28,11 +28,27 @@ namespace FtpHtml5Upload
 
             using (FileStream fs = new FileStream(@"F:\banners.zip", FileMode.OpenOrCreate))
             {
-                using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Update))
-                {
+                using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Create))
+                {                          
                     foreach (var v in directories)
                     {
-                        var entry = archive.CreateEntry(v.BaseUri.AbsolutePath);
+
+                        var path = String.Join("/", v.BaseUri.AbsolutePath.Split('/').Skip(2));
+                        var entry = archive.CreateEntry($"{path}/{v.Name}");
+                        var data = DownloadFile(v.AbsolutePath);
+
+                        
+                        using (var stream = entry.Open())
+                        {
+                            using (var mem = new MemoryStream(data))
+                            {
+                              
+                                mem.CopyTo(stream);
+                            }
+                        }
+
+                       
+
                     }
                 }
             }
@@ -40,16 +56,11 @@ namespace FtpHtml5Upload
 
         }
 
-
-
-
-
-
         static byte[] DownloadFile(string path)
         {
             FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(path);
-            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
-            request.UsePassive = true;
+            request.Method = WebRequestMethods.Ftp.DownloadFile;
+            request.UsePassive = true;  
             request.UseBinary = true;
             request.KeepAlive = false;
 
