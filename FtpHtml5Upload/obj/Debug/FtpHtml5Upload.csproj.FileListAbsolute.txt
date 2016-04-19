@@ -4,3 +4,13 @@ C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\bin\
 C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.csprojResolveAssemblyReference.cache
 C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.exe
 C:\Users\a.kozlov\Documents\Visual Studio 2013\Projects\Test\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.pdb
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\FtpHtml5Upload.exe.config
+C:\Git\TestExamples\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.exe
+C:\Git\TestExamples\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.pdb
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\FtpHtml5Upload.exe
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\FtpHtml5Upload.pdb
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\TargetMailApi.dll
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\Newtonsoft.Json.dll
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\TargetMailApi.pdb
+C:\Git\TestExamples\FtpHtml5Upload\bin\Debug\Newtonsoft.Json.xml
+C:\Git\TestExamples\FtpHtml5Upload\obj\Debug\FtpHtml5Upload.csprojResolveAssemblyReference.cache

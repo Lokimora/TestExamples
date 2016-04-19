@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
+using TargetMailApi.Services;
 
 
 namespace FtpHtml5Upload
@@ -14,46 +16,54 @@ namespace FtpHtml5Upload
     {
         private static void Main(string[] args)
         {
+
+            var data = GetCompressedData();
+
+            var token = "";
+     
+            TargetBannerService bannerService = new TargetBannerService(token, false);
+
+            bannerService.UploadHtml5(data, "240x400_targetex.zip");
+
+        }
+
+        private static byte[] GetCompressedData()
+        {
+
             Url url = new Url("ftp://localhost:21/240x400_targetex");
 
-
-
-            string zipPaph = @"F:/html5.zip";
-
-            WebClient wc = new WebClient();
 
             var directories = GetDirectoryInformation(url.Value, null, null).SelectMany(Expand).ToArray();
 
 
 
-            using (FileStream fs = new FileStream(@"F:\banners.zip", FileMode.OpenOrCreate))
+            using (MemoryStream memory = new MemoryStream())
             {
-                using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Create))
-                {                          
+                using (ZipArchive archive = new ZipArchive(memory, ZipArchiveMode.Create))
+                {
                     foreach (var v in directories)
                     {
 
-                        var path = String.Join("/", v.BaseUri.AbsolutePath.Split('/').Skip(2));
+                        var path = String.Join("/", v.BaseUri.AbsolutePath.Split('/').Skip(1));
                         var entry = archive.CreateEntry($"{path}/{v.Name}");
                         var data = DownloadFile(v.AbsolutePath);
 
-                        
+
                         using (var stream = entry.Open())
                         {
                             using (var mem = new MemoryStream(data))
                             {
-                              
                                 mem.CopyTo(stream);
                             }
                         }
 
-                       
+
 
                     }
                 }
+
+                return memory.ToArray();
             }
-
-
         }
 
         static byte[] DownloadFile(string path)
@@ -107,8 +117,7 @@ namespace FtpHtml5Upload
                 string data = line;
 
                 // Parse date
-                string date = data.Substring(0, 17);
-                DateTime dateTime = DateTime.Parse(date);
+    
                 data = data.Remove(0, 24);
 
                 // Parse <DIR>
@@ -123,7 +132,6 @@ namespace FtpHtml5Upload
                 // Create directory info
                 DirectoryItem item = new DirectoryItem();
                 item.BaseUri = new Uri(address);
-                item.DateCreated = dateTime;
                 item.IsDirectory = isDirectory;
                 item.Name = name;
 

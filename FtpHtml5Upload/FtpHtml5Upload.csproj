@@ -43,6 +43,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TargetMailApi">
+      <HintPath>..\..\target-mail-api\TargetMailApi\bin\Debug\TargetMailApi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryItem.cs" />
